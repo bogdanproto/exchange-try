@@ -1,0 +1,66 @@
+@import '/node_modules/modern-normalize/modern-normalize.css';
+@import url(./reset.css);
+@import url(./main.css);
+
+:root {
+  /* Colors */
+  --color-bcg: #151515;
+  --color-main-menu: #242424;
+  --color-main-text: rgb(217, 217, 217, 80%);
+}
+
+/* main style */
+.list {
+  list-style: none;
+}
+.link {
+  text-decoration: none;
+}
+
+body {
+  background-color: var(--color-bcg);
+}
+
+/* .container {
+  min-width: 320px;
+  max-width: 375px;
+  padding: 0 20px;
+  margin: 0 auto;
+} */
+
+/* classes */
+.footer-menu {
+  position: fixed;
+  z-index: 99;
+  bottom: 0px;
+
+  height: 80px;
+  width: 100%;
+
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+
+  background-color: var(--color-main-menu);
+}
+
+.footer-menu-list {
+  display: flex;
+  justify-content: center;
+  gap: 15%;
+}
+
+.footer-button {
+  text-align: center;
+}
+
+.footer-button-icons {
+  fill: var(--color-main-text);
+}
+
+.footer-icon-text {
+  display: block;
+  color: var(--color-main-text);
+  text-align: center;
+}
