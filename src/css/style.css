@@ -1,24 +1,38 @@
+@import url(../../node_modules/slim-select/dist/slimselect.css);
 @import '/node_modules/modern-normalize/modern-normalize.css';
 @import url(./reset.css);
+@import url('./fonts.css');
 @import url(./main.css);
 
 :root {
   /* Colors */
   --color-bcg: #151515;
   --color-main-menu: #242424;
+  --color-card-eqp: rgb(0, 164, 185, 70%);
   --color-main-text: rgb(217, 217, 217, 80%);
+  --color-focus-text: rgb(255, 255, 255, 90%);
+
+  /* Style */
+  --radius-main-menu: 8px;
+  --radius-card: 12px;
+  --radius-card-bottom: 0 0 12px 12px;
+  --shadow-card: 10px 10px 8px 2px rgba(0, 0, 0, 0.3);
 }
 
 /* main style */
+body {
+  font-family: 'Play', sans-serif;
+  font-weight: 400;
+
+  color: var(--color-main-text);
+  background-color: var(--color-bcg);
+}
+
 .list {
   list-style: none;
 }
 .link {
   text-decoration: none;
-}
-
-body {
-  background-color: var(--color-bcg);
 }
 
 /* .container {
@@ -28,10 +42,182 @@ body {
   margin: 0 auto;
 } */
 
-/* classes */
+/*--------------------- Header menu clasess------------------------- */
+
+.header-menu {
+  margin-top: 40px;
+  height: 52px;
+  width: 100%;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding-top: 12px;
+  padding-bottom: 12px;
+  padding-left: 14px;
+  padding-right: 14px;
+
+  background-color: var(--color-main-menu);
+}
+
+.select-category {
+  color: var(--color-main-text);
+  border: none;
+  background-color: var(--color-main-menu);
+}
+
+.ss-main {
+  fill: var(--color-main-text);
+}
+
+.header-menu-notification-list {
+  display: flex;
+  gap: 14px;
+  align-items: center;
+}
+
+.header-menu-notification-button {
+  height: 24px;
+  width: 24px;
+}
+
+.header-menu-notification-icons {
+  fill: var(--color-main-text);
+}
+
+/*--------------------- Request section-----------------------------  */
+
+.request-section {
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-left: 18px;
+  padding-right: 18px;
+
+  background-color: var(--color-main-menu);
+}
+
+.request-menu {
+  margin-bottom: 18px;
+
+  background-color: var(--color-bcg);
+  border-radius: var(--radius-main-menu);
+}
+
+.request-menu-list {
+  display: flex;
+}
+
+.request-menu-item {
+  display: block;
+  width: 100%;
+}
+
+.request-menu-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  height: 38px;
+  border-radius: var(--radius-main-menu);
+}
+
+.request-menu-button-text {
+  font-size: 16;
+}
+
+/* Go ride page */
+
+.request-goride {
+  background-color: var(--color-main-menu);
+}
+
+.request-goride-item {
+  margin-bottom: 16px;
+}
+
+/* go ride card  */
+
+.request-goride-card {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 16px;
+  padding-right: 16px;
+
+  width: 100%;
+
+  background-color: var(--color-bcg);
+  border-radius: var(--radius-card);
+}
+
+.request-goride-about {
+  display: flex;
+
+  margin-bottom: 8px;
+}
+
+.request-goride-profile {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+
+  white-space: nowrap;
+}
+
+.request-goride-profile-photo {
+  border-radius: 50%;
+}
+
+.request-goride-profile-info {
+  font-size: 8px;
+}
+.request-goride-profile-name {
+  font-size: 12px;
+}
+
+.request-goride-date-location {
+  text-align: right;
+}
+
+.request-goride-card-equipment {
+  min-height: 42px;
+
+  margin-bottom: -8px;
+  margin-left: -16px;
+  margin-right: -16px;
+  padding-left: 8px;
+
+  background-color: var(--color-card-eqp);
+  border-radius: var(--radius-card-bottom);
+  box-shadow: var(--shadow-card);
+}
+
+.request-goride-card-equipment-title {
+  padding-bottom: 2px;
+  padding-left: 4px;
+  padding-right: 4px;
+  margin-left: -8px;
+
+  width: max-content;
+
+  border-radius: 0 0 8px 0;
+  background-color: var(--color-bcg);
+}
+
+.request-goride-card-equipment-text {
+  display: block;
+  font-size: 10px;
+  color: var(--color-focus-text);
+}
+
+.request-goride-card-equipment-list {
+  font-size: 10px;
+  color: var(--color-focus-text);
+}
+
+/*---------------------- Footer menu classes--------------------------- */
 .footer-menu {
   position: fixed;
-  z-index: 99;
   bottom: 0px;
 
   height: 80px;
@@ -48,7 +234,8 @@ body {
 .footer-menu-list {
   display: flex;
   justify-content: center;
-  gap: 15%;
+  align-items: center;
+  gap: 20%;
 }
 
 .footer-button {
@@ -61,6 +248,10 @@ body {
 
 .footer-icon-text {
   display: block;
-  color: var(--color-main-text);
   text-align: center;
+
+  font-weight: 700;
+  font-size: 12;
+
+  color: var(--color-main-text);
 }

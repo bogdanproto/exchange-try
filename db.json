@@ -1,5 +1,23 @@
 {
-  "posts": [{ "id": 1, "title": "json-server", "author": "typicode" }],
-  "comments": [{ "id": 1, "body": "some comment", "postId": 1 }],
-  "profile": { "name": "typicode" }
+  "user": [
+    {
+      "id": 1,
+      "name": "Bogdan",
+      "surName": "Protasenko",
+      "photo": "AVOID",
+      "mainSport": "kitesurf",
+      "sports": [1, 2]
+    },
+    {
+      "id": 2,
+      "name": "Marty",
+      "surName": "Kinz",
+      "photo": "AVOID",
+      "mainSport": "kitesurf"
+    }
+  ],
+  "sports": [
+    { "id": 1, "sport": "kitesurf" },
+    { "id": 2, "sport": "snowboard" }
+  ]
 }
