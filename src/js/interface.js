@@ -26,6 +26,17 @@ class Interface {
     });
     this.slimSelect.setData(markUp);
   }
+
+  changeProfileButton(dataUser) {
+    const { name, photo } = dataUser;
+    const markUp = ` <a class="footer-icon-link link" href="">
+              <img class="footer-button-img" src="${photo}" alt="" width="36" height="36">
+              <span class="footer-icon-text">${name.toUpperCase()}</span>
+            </a>`;
+
+    this.btnProfile.innerHTML = '';
+    this.btnProfile.insertAdjacentHTML('beforeend', markUp);
+  }
 }
 
 export { Interface };

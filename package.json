@@ -6,7 +6,7 @@
   "scripts": {
     "start": "parcel src/*.html --no-cache",
     "build": "parcel build ./src/index.html",
-    "server": "json-server --watch db.json"
+    "server": "json-server --watch db.json -d 300"
   },
   "author": "Bogdan Protasenko",
   "license": "ISC",

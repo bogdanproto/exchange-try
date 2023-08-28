@@ -3,17 +3,18 @@
     {
       "id": 1,
       "name": "Bogdan",
-      "surName": "Protasenko",
-      "photo": "AVOID",
-      "mainSport": "kitesurf",
-      "sports": [1, 2]
+      "surname": "Protasenko",
+      "photo": "https://lh3.googleusercontent.com/pw/AIL4fc_eq2AfkCTimAS6OCk4mjOTuePfYeMYNdR53dGIMLBIksWz2b739jKGoZTuiUW-buPVBDxlXoOnie9QcsSYHQWC_tVSqj_Id2GgUcEsHr4d0Nji6FvbGhfeiSH4DkK61oKpr33mugikC-880bLVfga3QLqtr1ghF-YczFjKXX9RZ4rnU2OqZJ2VCa14hNSqUN4h77UDw3ui3YmHf6bsml80J54GVOmQcZeVzCvkdwGovI79EEOh4Cnlqzix1joxsliWU5NsVAr3z8KtdNhqACfIR-jXQHVzF4AcWnDOkGfNZ34C7qUJ9jcOSR0hCJVASY3hzhyfSPvHyIWFOBFeqyp8GFAYKZBcMqLE5dfkW69zIs0b-3cm1mqaNNUK3w6z-txH2fU8jmrszQZL4ngAGWEl5mtF2urdwP8NXDlBvA3tu_TjS2x7fSkZPgl7x5Mam7C26ejJsgDtrfu7CpN9QiXM5VfeaKvgxFQdLN1jHwV2IXP5gQ-pYBiizXp_Y_8r-9cD_dszxyj5JwkNE734ZAhz7Baz-TmTa5fGt1LC5HT3t3Lur-vwd9A06otsxM9UpVU5zERdCQz_rN_oXU4GfmJUosZn8zeIDwg6SyeUTiFA5vLIelNKYajAFOo8aemlN78W3mNejKvy3wFM2ZdPPxcVPJVl2JLmDd0z4tzJmXB_PGObI_sm3nTgI0eKOMNIvfFutP2aXRFrjd9C_yJz2SHy3tLVJFlsaRFmzs87wFuak-oRFvuRV1LS5HPOQ1jzRtAE--JGR5zi0-fuuqnW5-uvTj5V5goTRHfuIEgCZaBSVWI8bI4CGICHBs1vPuXsB2xEsdvxrd8iJud_GhCQC5EvWwEz-gVr91qDYZVHsJYct_vdgy5rLU3qAuHZ5nD6iKi5dIFZXzeDru_xMZO9X7qkJg=w397-h397-s-no?authuser=0",
+      "mainsport": "kitesurf",
+      "sports": [1]
     },
     {
       "id": 2,
       "name": "Marty",
-      "surName": "Kinz",
-      "photo": "AVOID",
-      "mainSport": "kitesurf"
+      "surname": "Kinz",
+      "photo": "https://lh3.googleusercontent.com/pw/AIL4fc9T9CDco1zJOjGBdUF5Fq9kJU3JdhnaulhVVcIJXpjaPu-lGBuGCPdxH8WgklRPFvkhKNJakblkPz5TmtBrysfcO52rCFg3FmH8YyBcRiTOyBgIbKqCqNH_h8XxOl02xETBVT4Ry6dCVfMdW8u7X2Xy2MH7SXB01NlgLwQ3Wvex7lpfAvcxmuAw71_SH07_4iFYx9BgAV4Rtx24Yg6iRmHlBC6s7UvxcMNhW-KfjDBK64QLH7003bF55IBfJuHRLZJDQMqcWECQzULRqlpOtSDFXDMyqHvuEEciX5xdixUIfopzImZ_Zvx1h85rIfjzS7wEQfRIHmYSN24F90tmz-fK9LupZgGqnuoYgJdM0D78lTBX2LjWOgKc0_DpSliyhi1DqfhQxupEccHa6xwwhnkQkx5S1COoub512-sNb9q7VFQPPn9QiHEBJAVKAKPlFG7HXa7GSBZQKjSW1XDwJEy-DrU2kRKeOVfjB8J_HinWI0JEww5cpP5o38VB97PvEpBApV4EfqDecULMVAYmsn7_MDJZ45uryl9Co-8xE8UhC5P1I5-5ZL0_ppo2do-VBdlXh8kMNV0iAGhqGaMQvMwutED9_Yv9Z4z-Q0nTsJs0tUWqXW97-luYEaA53rSx_0LV_XwIRsdQureRIyAbpt4tLD48sPWlgOyG4XFWaUL1C3NnjmYXXZHqSUtm3CTCyaUu7sS_gCMZt8q-Ub98t-KBuqtnQRexaNN7x6Sy7KSrm2Nk_ZXNNgmkLZf19KZIfJf_v3dBVQguXdVLa1Uf2e8PnHwyFd1flYe4hOhcKW2KnMgd31PFJUZ_sn_pIHaxGnekidnqD76ME4Z_onYwmp2vBJB-cDQBZpLUR-juQdLVtyWX6Y1CRzzL4Wio3G5sVPwm6WGm9s3E7mnWOf1XoWA4yA=w547-h566-s-no?authuser=0",
+      "mainsport": "kitesurf",
+      "sports": [1, 2]
     }
   ],
   "sports": [
