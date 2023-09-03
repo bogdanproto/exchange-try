@@ -1,24 +1,42 @@
-import { Interface } from './js/interface';
-import { exchangeAPI } from './js/api';
+import { interfaceApp } from './js/interface';
+import { serverAPI } from './js/api';
+import flatpickr from 'flatpickr';
+import 'flatpickr/dist/flatpickr.min.css';
+import SlimSelect from 'slim-select';
+
+const inputdate = document.querySelector('#datetime-picker');
+console.log(inputdate);
+flatpickr('#datetime-picker', {});
+
+new SlimSelect({
+  select: '#spot-select',
+  settings: {
+    showSearch: false,
+  },
+});
+
+new SlimSelect({
+  select: '#equipment-select',
+  settings: {
+    showSearch: false,
+  },
+});
 
 const USER = 1; // while I won't have user loginIn
 
-const interfaceMain = new Interface();
-
 const ref = { btnProfile: '.js-profile', selectSport: '#category' };
-interfaceMain.setElements(ref);
+interfaceApp.setElements(ref);
 
-// document.addEventListener('DOMContentLoaded', loadMainData);
+document.addEventListener('DOMContentLoaded', loadMainData);
 
-function loadMainData() {
-  exchangeAPI
-    .fetchUser(USER)
-    .then(data => {
-      exchangeAPI
-        .fetchUsersSportCategory(data.sports)
-        .then(data => interfaceMain.addSportSelector(data))
-        .catch(error => console.log(error));
-      interfaceMain.changeProfileButton(data);
-    })
-    .catch(error => console.log(error));
+async function loadMainData() {
+  try {
+    const user = await serverAPI.fetchUser(USER);
+    const sportCategory = await serverAPI.fetchUsersSportCategory(user.sports);
+
+    interfaceApp.changeProfileButton(user);
+    interfaceApp.addSportSelector(sportCategory);
+  } catch (err) {
+    console.log(err);
+  }
 }

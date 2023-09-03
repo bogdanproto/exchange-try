@@ -30,7 +30,7 @@ class Interface {
   changeProfileButton(dataUser) {
     const { name, photo } = dataUser;
     const markUp = ` <a class="footer-icon-link link" href="">
-              <img class="footer-button-img" src="${photo}" alt="" width="36" height="36">
+              <img class="footer-button-img" src="${photo}" alt="" width="28" height="28">
               <span class="footer-icon-text">${name.toUpperCase()}</span>
             </a>`;
 
@@ -39,4 +39,6 @@ class Interface {
   }
 }
 
-export { Interface };
+const interfaceApp = new Interface();
+
+export { interfaceApp };

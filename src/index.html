@@ -307,6 +307,78 @@
         </li>
       </ul>
     </footer>
+    <section class="request-modal">
+      <div class="request-modal-title">
+        <p class="request-modal-title-text">NEW REQUEST</p>
+      </div>
+      <form class="request-form">
+        <div class="request-checkbox">
+          <div class="request-checkbox-allday pretty p-default p-switch p-fill">
+            <input type="checkbox" />
+            <div class="state">
+              <label>ALL DAY</label>
+            </div>
+          </div>
+        </div>
+
+        <label class="request-datetime-box">
+          <input
+            class="request-datetime-input"
+            type="text"
+            name="date"
+            id="datetime-picker"
+          />
+        </label>
+        <label class="request-spot-select">
+          <select name="spot" id="spot-select">
+            <option value="xs">Extra Small</option>
+            <option value="s">Small</option>
+            <option value="m" selected>Medium</option>
+            <option value="l">Large</option>
+          </select>
+        </label>
+
+        <label class="request-equipment-select-label">
+          <select
+            class="request-equipment-select"
+            name="equipment"
+            id="equipment-select"
+          >
+            <option value="Naish">Naish</option>
+            <option value="Core">Core</option>
+            <option value="Cabrinha" selected>Cabrinha</option>
+            <option value="Spook">Spook</option>
+          </select>
+        </label>
+
+        <div class="request-checkbox">
+          <div
+            class="request-checkbox-show-phone pretty p-default p-switch p-fill"
+          >
+            <input type="checkbox" />
+            <div class="state">
+              <label>Show my phone</label>
+            </div>
+          </div>
+        </div>
+
+        <div class="request-checkbox">
+          <div
+            class="request-checkbox-auto-accept pretty p-default p-switch p-fill"
+          >
+            <input type="checkbox" />
+            <div class="state">
+              <label>Auto accept</label>
+            </div>
+          </div>
+        </div>
+
+        <div class="request-form-btn-panel">
+          <button type="submit">SEND</button>
+          <button type="button">CANCEL</button>
+        </div>
+      </form>
+    </section>
     <script type="module" src="index.js"></script>
   </body>
 </html>

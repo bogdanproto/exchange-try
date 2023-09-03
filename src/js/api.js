@@ -1,5 +1,3 @@
-import axios from 'axios';
-
 class API {
   constructor(baseUrl) {
     this.BASE_URL = baseUrl;
@@ -9,12 +7,13 @@ class API {
 
   //get main User data
   async fetchUser(id) {
-    try {
-      const response = await axios.get(this.BASE_URL + this.userPath + id);
-      return await response.data;
-    } catch (error) {
-      console.log(error.message);
+    const response = await fetch(this.BASE_URL + this.userPath + id);
+
+    if (!response.ok) {
+      throw new Error(response.statusText);
     }
+
+    return await response.json();
   }
 
   //get sport's category for select filtred by user
@@ -24,17 +23,19 @@ class API {
         idx !== arr.length - 1 ? `id=${id}&` : `id=${id}`
       )
       .join('');
-    try {
-      const response = await axios.get(
-        this.BASE_URL + this.sportsPath + `?${filter}`
-      );
-      return await response.data;
-    } catch (error) {
-      console.log(error.message);
+
+    const response = await fetch(
+      this.BASE_URL + this.sportsPath + `?${filter}`
+    );
+
+    if (!response.ok) {
+      throw new Error(response.statusText);
     }
+
+    return await response.json();
   }
 }
 
-const exchangeAPI = new API('http://localhost:3000/');
+const serverAPI = new API('http://localhost:3000/');
 
-export { exchangeAPI };
+export { serverAPI };
