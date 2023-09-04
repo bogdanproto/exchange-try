@@ -4,21 +4,72 @@
       "id": 1,
       "name": "Bogdan",
       "surname": "Protasenko",
+      "phone": "+380502028748",
       "photo": "https://cdn.pixabay.com/photo/2010/11/26/roast-pork-200_150.jpg",
       "mainsport": "kitesurf",
-      "sports": [1]
+      "sports": [1],
+      "equeipment": [1, 2, 27]
     },
     {
       "id": 2,
       "name": "Marty",
       "surname": "Kinz",
+      "phone": "+3809900990",
       "photo": "https://cdn.pixabay.com/photo/2010/11/29/india-300_150.jpg",
       "mainsport": "kitesurf",
-      "sports": [1, 2]
+      "sports": [1, 2],
+      "equeipment": [5, 6, 24]
     }
   ],
   "sports": [
     { "id": 1, "sport": "kitesurf" },
     { "id": 2, "sport": "snowboard" }
+  ],
+  "equeipment": [
+    { "id": 1, "type": "kite", "item": "Naish Pivot 9 2022" },
+    { "id": 2, "type": "kite", "item": "Naish Pivot 11 2022" },
+    { "id": 3, "type": "kite", "item": "Naish Pivot 12 2022" },
+    { "id": 4, "type": "kite", "item": "Naish Pivot 14 2022" },
+    { "id": 5, "type": "kite", "item": "Core XR 9 2020" },
+    { "id": 6, "type": "kite", "item": "Core XR 11 2021" },
+    { "id": 7, "type": "kite", "item": "Core XR 12 2023" },
+    { "id": 8, "type": "kite", "item": "Core XR 14 2019" },
+    { "id": 9, "type": "kite", "item": "Cabrinha Contra 9 2022" },
+    { "id": 10, "type": "kite", "item": "Cabrinha Contra 11 2022" },
+    { "id": 11, "type": "kite", "item": "Cabrinha Contra 12 2022" },
+    { "id": 12, "type": "kite", "item": "Cabrinha Contra 14 2022" },
+    { "id": 13, "type": "kite", "item": "Slingshot Rally 9 2020" },
+    { "id": 14, "type": "kite", "item": "Slingshot Rally 11 2021" },
+    { "id": 15, "type": "kite", "item": "Slingshot Rally 12 2023" },
+    { "id": 16, "type": "kite", "item": "Slingshot Rally 14 2019" },
+    { "id": 17, "type": "kiteboard", "item": "Naish Monarch 132 2022" },
+    { "id": 18, "type": "kiteboard", "item": "Naish Monarch 138 2022" },
+    { "id": 19, "type": "kiteboard", "item": "Cabrinha Spectrum 140 2018" },
+    { "id": 20, "type": "kiteboard", "item": "Cabrinha Spectrum 138 2015" },
+    { "id": 21, "type": "kiteboard", "item": "Core Fuson 132 2020" },
+    { "id": 22, "type": "kiteboard", "item": "Core Fuson 131 2021" },
+    { "id": 23, "type": "kiteboard", "item": "Core Fuson 138 2023" },
+    { "id": 24, "type": "kiteboard", "item": "Core Fuson 142 2019" },
+    { "id": 25, "type": "kiteboard", "item": "Cabrinha ACE 128 2022" },
+    { "id": 26, "type": "kiteboard", "item": "Cabrinha ACE 132 2022" },
+    { "id": 27, "type": "kiteboard", "item": "Cabrinha ACE 136 2022" },
+    { "id": 28, "type": "kiteboard", "item": "Cabrinha ACE 138 2022" }
+  ],
+
+  "spots": [
+    { "id": 1, "spot": "Wissant" },
+    { "id": 2, "spot": "Tarifa" },
+    { "id": 3, "spot": "El Medano" },
+    { "id": 4, "spot": "Gaaga" },
+    { "id": 5, "spot": "Fuentuventura" },
+    { "id": 6, "spot": "Lecate" },
+    { "id": 7, "spot": "Wimreux" },
+    { "id": 8, "spot": "Gavre" },
+    { "id": 9, "spot": "Lisabone" },
+    { "id": 10, "spot": "Kyiv See" },
+    { "id": 11, "spot": "Arcashone" },
+    { "id": 12, "spot": "Garda" },
+    { "id": 13, "spot": "Como lake" },
+    { "id": 14, "spot": "Lazurnoe" }
   ]
 }

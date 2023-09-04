@@ -272,78 +272,83 @@
     <footer class="footer-menu">
       <ul class="footer-menu-list list">
         <li>
-          <div class="footer-button">
-            <a class="footer-icon-link link" href="">
-              <svg
-                class="footer-button-icons active-icon"
-                width="28"
-                height="28"
-              >
-                <use href="img/svg/sprite.svg#home"></use>
-              </svg>
-              <span class="footer-icon-text active-text">HOME</span>
-            </a>
+          <div class="footer-button js-btn-home">
+            <svg class="footer-button-icons active-icon" width="28" height="28">
+              <use href="img/svg/sprite.svg#home"></use>
+            </svg>
+            <span class="footer-icon-text active-text">HOME</span>
           </div>
         </li>
         <li>
-          <div class="footer-button">
-            <a class="footer-icon-link link" href="">
-              <svg class="footer-button-icons" width="28" height="28">
-                <use href="img/svg/sprite.svg#add"></use>
-              </svg>
-              <span class="footer-icon-text">REQUEST</span>
-            </a>
+          <div class="footer-button js-btn-request">
+            <svg class="footer-button-icons" width="28" height="28">
+              <use href="img/svg/sprite.svg#add"></use>
+            </svg>
+            <span class="footer-icon-text">REQUEST</span>
           </div>
         </li>
         <li>
-          <div class="footer-button js-profile">
-            <a class="footer-icon-link link" href="">
-              <svg class="footer-button-icons" width="28" height="28">
-                <use href="img/svg/sprite.svg#profile"></use>
-              </svg>
-              <span class="footer-icon-text">PROFILE</span>
-            </a>
+          <div class="footer-button js-btn-profile">
+            <svg class="footer-button-icons" width="28" height="28">
+              <use href="img/svg/sprite.svg#profile"></use>
+            </svg>
+            <span class="footer-icon-text">PROFILE</span>
           </div>
         </li>
       </ul>
     </footer>
-    <section class="request-modal">
+    <!------------ request modal ------- -->
+    <section class="request-modal is-hidden">
       <div class="request-modal-title">
         <p class="request-modal-title-text">NEW REQUEST</p>
       </div>
       <form class="request-form">
-        <div class="request-checkbox">
-          <div class="request-checkbox-allday pretty p-default p-switch p-fill">
-            <input type="checkbox" />
-            <div class="state">
-              <label>ALL DAY</label>
+        <label class="request-label">
+          <span class="request-label-title"> Date </span>
+          <input
+            class="request-date-input request-input"
+            type="text"
+            name="date"
+            id="date-picker"
+            placeholder="Select Date"
+          />
+        </label>
+
+        <div class="request-time-block">
+          <label class="request-label">
+            <span class="request-label-title"> Time </span>
+            <input
+              class="request-time-input request-input"
+              type="text"
+              name="date"
+              id="time-picker"
+              placeholder="Select Time"
+            />
+          </label>
+
+          <div class="request-checkbox request-checkbox-box-allday">
+            <div
+              class="request-checkbox-allday pretty p-default p-switch p-fill"
+            >
+              <input class="js-request-switch-allday" type="checkbox" />
+              <div class="state">
+                <label class="request-checkbox-allday-text">ALL DAY</label>
+              </div>
             </div>
           </div>
         </div>
 
-        <label class="request-datetime-box">
-          <input
-            class="request-datetime-input"
-            type="text"
-            name="date"
-            id="datetime-picker"
-          />
-        </label>
-        <label class="request-spot-select">
-          <select name="spot" id="spot-select">
-            <option value="xs">Extra Small</option>
-            <option value="s">Small</option>
-            <option value="m" selected>Medium</option>
-            <option value="l">Large</option>
+        <label class="request-label">
+          <span class="request-label-title"> Spot </span>
+          <select class="request-input" name="spot" id="spot-select">
+            <option value="wissant">Wissant</option>
+            <option value="tarifa">Tarife</option>
           </select>
         </label>
 
-        <label class="request-equipment-select-label">
-          <select
-            class="request-equipment-select"
-            name="equipment"
-            id="equipment-select"
-          >
+        <label class="request-label">
+          <span class="request-label-title"> Equeipment </span>
+          <select class="request-input" name="equipment" id="equipment-select">
             <option value="Naish">Naish</option>
             <option value="Core">Core</option>
             <option value="Cabrinha" selected>Cabrinha</option>
@@ -374,8 +379,10 @@
         </div>
 
         <div class="request-form-btn-panel">
-          <button type="submit">SEND</button>
-          <button type="button">CANCEL</button>
+          <button class="request-button" type="submit">SEND</button>
+          <button class="js-request-btn-cancel request-button" type="button">
+            CANCEL
+          </button>
         </div>
       </form>
     </section>

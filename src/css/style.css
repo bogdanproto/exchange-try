@@ -1,3 +1,5 @@
+@import url(../../node_modules/flatpickr/dist/flatpickr.min.css);
+@import url(../../node_modules/flatpickr/dist/themes/dark.css);
 @import url(../../node_modules/slim-select/dist/slimselect.css);
 @import url(../../node_modules/pretty-checkbox/dist/pretty-checkbox.min.css);
 @import '/node_modules/modern-normalize/modern-normalize.css';
@@ -16,12 +18,17 @@
   --color-card-eqp: rgba(5, 129, 146, 0.7);
   --color-main-text: rgb(217, 217, 217, 80%);
   --color-focus-text: rgb(255, 255, 255, 90%);
+  --color-placeholfer: rgba(184, 184, 184, 0.434);
+
+  /* color form */
+  --color-input: rgb(42, 42, 42);
 
   /* event colors  */
 
   --color-active: rgb(0, 164, 185, 70%);
 
   /* Style */
+  --radius-input: 4px;
   --radius-main-menu: 8px;
   --radius-card: 12px;
   --radius-card-bottom: 0 0 12px 12px;
@@ -37,6 +44,17 @@ body {
 
   color: var(--color-main-text);
   background-color: var(--color-bcg);
+}
+
+.off-scroll {
+  overflow-y: hidden;
+  position: fixed;
+}
+
+.is-hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
 }
 
 .list {
@@ -263,7 +281,7 @@ body {
   gap: 20%;
 }
 
-.footer-icon-link {
+.footer-button {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -271,10 +289,6 @@ body {
 
 .footer-button-icons {
   fill: var(--color-main-text);
-}
-
-.active-icon {
-  fill: var(--color-active);
 }
 
 .footer-button-img {
@@ -291,10 +305,14 @@ body {
   color: var(--color-main-text);
 }
 
-.active-text {
-  color: var(--color-active);
+.js-btn-profile .footer-icon-text {
+  margin-top: 2px;
 }
 
-.js-profile .footer-icon-text {
-  margin-top: 2px;
+.active-icon {
+  fill: var(--color-active);
+}
+
+.active-text {
+  color: var(--color-active);
 }
