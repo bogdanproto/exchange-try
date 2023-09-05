@@ -3,7 +3,7 @@ import flatpickr from 'flatpickr';
 
 class Interface {
   constructor() {
-    (this.slimSelect = new SlimSelect({
+    (this.sportCategory = new SlimSelect({
       select: '#category',
       settings: {
         showSearch: false,
@@ -15,7 +15,7 @@ class Interface {
           showSearch: false,
         },
       })),
-      (this.inputEqt = new SlimSelect({
+      (this.inputEqpt = new SlimSelect({
         select: '#equipment-select',
         settings: {
           showSearch: false,
@@ -50,7 +50,7 @@ class Interface {
         value: sport,
       };
     });
-    this.slimSelect.setData(markUp);
+    this.sportCategory.setData(markUp);
   }
 
   changeProfileButton(dataUser) {
@@ -60,6 +60,26 @@ class Interface {
 
     this.btnProfile.innerHTML = '';
     this.btnProfile.insertAdjacentHTML('beforeend', markUp);
+  }
+
+  addSpotsSelector(arr) {
+    const markUp = arr.map(({ spot, id }) => {
+      return {
+        text: spot.toUpperCase(),
+        value: id,
+      };
+    });
+    this.inputSpot.setData(markUp);
+  }
+
+  addEqptSelectorByUser(arr) {
+    const markUp = arr.map(({ item, id }) => {
+      return {
+        text: item,
+        value: id,
+      };
+    });
+    this.inputEqpt.setData(markUp);
   }
 
   // micro service interface
@@ -76,12 +96,14 @@ class Interface {
 
   toShowModalRequest() {
     this.modalRequest.classList.remove('is-hidden');
+    this.requestMenu.classList.add('is-hidden');
     this.body.classList.add('off-scroll');
   }
 
   toCloseModalRequest() {
     this.modalRequest.classList.add('is-hidden');
     this.body.classList.remove('off-scroll');
+    this.requestMenu.classList.remove('is-hidden');
     this.toSetDefaultActiveButtonFooter();
   }
 
@@ -91,7 +113,7 @@ class Interface {
       return;
     }
 
-    const listButtons = evt.currentTarget.querySelectorAll('.footer-button');
+    const listButtons = this.footerMenu.querySelectorAll('.footer-button');
     listButtons.forEach(button => {
       button.children[0].classList.remove('active-icon');
       button.children[1].classList.remove('active-text');
@@ -111,6 +133,50 @@ class Interface {
     this.btnHome.children[0].classList.add('active-icon');
     this.btnHome.children[1].classList.add('active-text');
   }
+
+  toSetDefaultActiveButtonFooter() {
+    const listButtons = this.footerMenu.querySelectorAll('.footer-button');
+    listButtons.forEach(button => {
+      button.children[0].classList.remove('active-icon');
+      button.children[1].classList.remove('active-text');
+    });
+
+    this.btnHome.children[0].classList.add('active-icon');
+    this.btnHome.children[1].classList.add('active-text');
+  }
+
+  toShowRequestSection(evt) {
+    const isButton = evt.target.closest('.request-menu-button');
+
+    if (!isButton) {
+      return;
+    }
+
+    const listButtons = this.requestMenu.querySelectorAll(
+      '.request-menu-button'
+    );
+    const listSections = document.querySelectorAll(
+      'main > .request-section-common'
+    );
+
+    listButtons.forEach(button => {
+      button.classList.remove('active-btn');
+    });
+
+    listSections.forEach(section => {
+      section.classList.add('is-hidden');
+    });
+
+    isButton.classList.add('active-btn');
+
+    if (isButton.classList.contains('js-btn-goride')) {
+      this.sectionGoride.classList.remove('is-hidden');
+    } else if (isButton.classList.contains('js-btn-proposal')) {
+      this.sectionProposal.classList.remove('is-hidden');
+    } else if (isButton.classList.contains('js-btn-pending')) {
+      this.sectionPending.classList.remove('is-hidden');
+    }
+  }
 }
 
 const interfaceApp = new Interface();
@@ -124,6 +190,11 @@ const ref = {
   btnProfile: '.js-btn-profile',
   btnRequest: '.js-btn-request',
   btnHome: '.js-btn-home',
+
+  requestMenu: '.request-menu',
+  sectionGoride: '.request-goride',
+  sectionProposal: '.request-proposal',
+  sectionPending: '.request-pending',
 
   modalRequest: '.request-modal',
   formRequest: '.request-form',

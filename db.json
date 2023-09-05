@@ -1,12 +1,12 @@
 {
-  "user": [
+  "users": [
     {
       "id": 1,
       "name": "Bogdan",
       "surname": "Protasenko",
       "phone": "+380502028748",
       "photo": "https://cdn.pixabay.com/photo/2010/11/26/roast-pork-200_150.jpg",
-      "mainsport": "kitesurf",
+      "mainsport": "1",
       "sports": [1],
       "equeipment": [1, 2, 27]
     },
@@ -16,7 +16,7 @@
       "surname": "Kinz",
       "phone": "+3809900990",
       "photo": "https://cdn.pixabay.com/photo/2010/11/29/india-300_150.jpg",
-      "mainsport": "kitesurf",
+      "mainsport": [1],
       "sports": [1, 2],
       "equeipment": [5, 6, 24]
     }

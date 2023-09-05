@@ -3,7 +3,15 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>EXCANGE&TRY</title>
+
+    <!-- app for ios -->
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta
+      name="apple-mobile-web-app-status-barstyle"
+      content="black-translucent"
+    />
+
+    <title>EXCHANGE&TRY</title>
     <link rel="stylesheet" href="css/style.css" />
   </head>
   <body>
@@ -45,228 +53,326 @@
       </div>
     </header>
     <main>
-      <section class="request-section">
+      <div class="request-menu-container">
         <div class="request-menu">
           <ul class="request-menu-list list">
             <li class="request-menu-item">
-              <div class="request-menu-button active-btn">
+              <div class="request-menu-button active-btn js-btn-goride">
                 <span class="request-menu-button-text">GO RIDE</span>
               </div>
             </li>
             <li class="request-menu-item">
-              <div class="request-menu-button">
+              <div class="request-menu-button js-btn-proposal">
                 <span class="request-menu-button-text">PROPOSAL</span>
               </div>
             </li>
             <li class="request-menu-item">
-              <div class="request-menu-button">
+              <div class="request-menu-button js-btn-pending">
                 <span class="request-menu-button-text">PENDING</span>
               </div>
             </li>
           </ul>
         </div>
-        <div class="request-goride">
-          <ul class="request-goride-list list">
-            <li class="request-goride-item">
-              <div class="request-goride-card">
-                <div class="request-goride-about">
-                  <div class="request-goride-profile">
-                    <img
-                      class="request-goride-profile-photo"
-                      src="./img/temp/profile.jpg"
-                      alt="profile"
-                      width="40"
-                      height="40"
-                    />
-                    <div class="request-goride-profile-info">
-                      <ul class="list">
-                        <li>
-                          <span class="request-goride-profile-name"
-                            >Micky Store</span
-                          >
-                        </li>
-                        <li>
-                          <span class="request-goride-profile-friends"
-                            >3 mutual friends</span
-                          >
-                        </li>
-                        <li>
-                          <span class="request-goride-profile-experience">
-                            8 years experience</span
-                          >
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
-                  <div class="request-goride-date-location">
-                    <span class="request-goride-date">07.09.2023 10.00</span>
-                    <span class="request-goride-location">Wissant</span>
+      </div>
+
+      <section class="request-goride request-section-common">
+        <ul class="request-goride-list list">
+          <li class="request-goride-item">
+            <div class="request-goride-card">
+              <div class="request-goride-about">
+                <div class="request-goride-profile">
+                  <img
+                    class="request-goride-profile-photo"
+                    src="./img/temp/profile.jpg"
+                    alt="profile"
+                    width="40"
+                    height="40"
+                  />
+                  <div class="request-goride-profile-info">
+                    <ul class="list">
+                      <li>
+                        <span class="request-goride-profile-name"
+                          >Micky Store</span
+                        >
+                      </li>
+                      <li>
+                        <span class="request-goride-profile-friends"
+                          >3 mutual friends</span
+                        >
+                      </li>
+                      <li>
+                        <span class="request-goride-profile-experience">
+                          8 years experience</span
+                        >
+                      </li>
+                    </ul>
                   </div>
                 </div>
-                <div class="request-goride-card-equipment">
-                  <div class="request-goride-card-equipment-title">
-                    <span class="request-goride-card-equipment-text"
-                      >For exchange</span
-                    >
-                  </div>
-                  <span class="request-goride-card-equipment-list"
-                    >Core XR 12 2022, Core Fusion 136 2021
-                  </span>
+                <div class="request-goride-date-location">
+                  <span class="request-goride-date">07.09.2023 10.00</span>
+                  <span class="request-goride-location">Wissant</span>
                 </div>
               </div>
-            </li>
-            <li class="request-goride-item">
-              <div class="request-goride-card">
-                <div class="request-goride-about">
-                  <div class="request-goride-profile">
-                    <img
-                      class="request-goride-profile-photo"
-                      src="./img/temp/profile.jpg"
-                      alt="profile"
-                      width="40"
-                      height="40"
-                    />
-                    <div class="request-goride-profile-info">
-                      <ul class="list">
-                        <li>
-                          <span class="request-goride-profile-name"
-                            >Bogdan Protasenko goole</span
-                          >
-                        </li>
-                        <li>
-                          <span class="request-goride-profile-friends"
-                            >3 mutual friends</span
-                          >
-                        </li>
-                        <li>
-                          <span class="request-goride-profile-experience">
-                            8 years experience</span
-                          >
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
-                  <div class="request-goride-date-location">
-                    <span class="request-goride-date">07.09.2023 10.00</span>
-                    <span class="request-goride-location">Wissant</span>
+              <div class="request-goride-card-equipment">
+                <div class="request-goride-card-equipment-title">
+                  <span class="request-goride-card-equipment-text"
+                    >For exchange</span
+                  >
+                </div>
+                <span class="request-goride-card-equipment-list"
+                  >Core XR 12 2022, Core Fusion 136 2021
+                </span>
+              </div>
+            </div>
+          </li>
+          <li class="request-goride-item">
+            <div class="request-goride-card">
+              <div class="request-goride-about">
+                <div class="request-goride-profile">
+                  <img
+                    class="request-goride-profile-photo"
+                    src="./img/temp/profile.jpg"
+                    alt="profile"
+                    width="40"
+                    height="40"
+                  />
+                  <div class="request-goride-profile-info">
+                    <ul class="list">
+                      <li>
+                        <span class="request-goride-profile-name"
+                          >Bogdan Protasenko goole</span
+                        >
+                      </li>
+                      <li>
+                        <span class="request-goride-profile-friends"
+                          >3 mutual friends</span
+                        >
+                      </li>
+                      <li>
+                        <span class="request-goride-profile-experience">
+                          8 years experience</span
+                        >
+                      </li>
+                    </ul>
                   </div>
                 </div>
-                <div class="request-goride-card-equipment">
-                  <div class="request-goride-card-equipment-title">
-                    <span class="request-goride-card-equipment-text"
-                      >For exchange</span
-                    >
-                  </div>
-                  <span class="request-goride-card-equipment-list"
-                    >Core XR 12 2022, Core Fusion 136 2021
-                  </span>
+                <div class="request-goride-date-location">
+                  <span class="request-goride-date">07.09.2023 10.00</span>
+                  <span class="request-goride-location">Wissant</span>
                 </div>
               </div>
-            </li>
-            <li class="request-goride-item">
-              <div class="request-goride-card">
-                <div class="request-goride-about">
-                  <div class="request-goride-profile">
-                    <img
-                      class="request-goride-profile-photo"
-                      src="./img/temp/profile.jpg"
-                      alt="profile"
-                      width="40"
-                      height="40"
-                    />
-                    <div class="request-goride-profile-info">
-                      <ul class="list">
-                        <li>
-                          <span class="request-goride-profile-name"
-                            >Bogdan Protasenko srore</span
-                          >
-                        </li>
-                        <li>
-                          <span class="request-goride-profile-friends"
-                            >3 mutual friends</span
-                          >
-                        </li>
-                        <li>
-                          <span class="request-goride-profile-experience">
-                            8 years experience</span
-                          >
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
-                  <div class="request-goride-date-location">
-                    <span class="request-goride-date">07.09.2023 10.00</span>
-                    <span class="request-goride-location">Wissant</span>
+              <div class="request-goride-card-equipment">
+                <div class="request-goride-card-equipment-title">
+                  <span class="request-goride-card-equipment-text"
+                    >For exchange</span
+                  >
+                </div>
+                <span class="request-goride-card-equipment-list"
+                  >Core XR 12 2022, Core Fusion 136 2021
+                </span>
+              </div>
+            </div>
+          </li>
+          <li class="request-goride-item">
+            <div class="request-goride-card">
+              <div class="request-goride-about">
+                <div class="request-goride-profile">
+                  <img
+                    class="request-goride-profile-photo"
+                    src="./img/temp/profile.jpg"
+                    alt="profile"
+                    width="40"
+                    height="40"
+                  />
+                  <div class="request-goride-profile-info">
+                    <ul class="list">
+                      <li>
+                        <span class="request-goride-profile-name"
+                          >Bogdan Protasenko goole</span
+                        >
+                      </li>
+                      <li>
+                        <span class="request-goride-profile-friends"
+                          >3 mutual friends</span
+                        >
+                      </li>
+                      <li>
+                        <span class="request-goride-profile-experience">
+                          8 years experience</span
+                        >
+                      </li>
+                    </ul>
                   </div>
                 </div>
-                <div class="request-goride-card-equipment">
-                  <div class="request-goride-card-equipment-title">
-                    <span class="request-goride-card-equipment-text"
-                      >For exchange</span
-                    >
-                  </div>
-                  <span class="request-goride-card-equipment-list"
-                    >Core XR 12 2022, Core Fusion 136 2021
-                  </span>
+                <div class="request-goride-date-location">
+                  <span class="request-goride-date">07.09.2023 10.00</span>
+                  <span class="request-goride-location">Wissant</span>
                 </div>
               </div>
-            </li>
-            <li class="request-goride-item">
-              <div class="request-goride-card">
-                <div class="request-goride-about">
-                  <div class="request-goride-profile">
-                    <img
-                      class="request-goride-profile-photo"
-                      src="./img/temp/profile.jpg"
-                      alt="profile"
-                      width="40"
-                      height="40"
-                    />
-                    <div class="request-goride-profile-info">
-                      <ul class="list">
-                        <li>
-                          <span class="request-goride-profile-name"
-                            >Bogdan Protasenko</span
-                          >
-                        </li>
-                        <li>
-                          <span class="request-goride-profile-friends"
-                            >3 mutual friends</span
-                          >
-                        </li>
-                        <li>
-                          <span class="request-goride-profile-experience">
-                            8 years experience</span
-                          >
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
-                  <div class="request-goride-date-location">
-                    <span class="request-goride-date">07.09.2023 10.00</span>
-                    <span class="request-goride-location">Wissant</span>
+              <div class="request-goride-card-equipment">
+                <div class="request-goride-card-equipment-title">
+                  <span class="request-goride-card-equipment-text"
+                    >For exchange</span
+                  >
+                </div>
+                <span class="request-goride-card-equipment-list"
+                  >Core XR 12 2022, Core Fusion 136 2021
+                </span>
+              </div>
+            </div>
+          </li>
+          <li class="request-goride-item">
+            <div class="request-goride-card">
+              <div class="request-goride-about">
+                <div class="request-goride-profile">
+                  <img
+                    class="request-goride-profile-photo"
+                    src="./img/temp/profile.jpg"
+                    alt="profile"
+                    width="40"
+                    height="40"
+                  />
+                  <div class="request-goride-profile-info">
+                    <ul class="list">
+                      <li>
+                        <span class="request-goride-profile-name"
+                          >Bogdan Protasenko srore</span
+                        >
+                      </li>
+                      <li>
+                        <span class="request-goride-profile-friends"
+                          >3 mutual friends</span
+                        >
+                      </li>
+                      <li>
+                        <span class="request-goride-profile-experience">
+                          8 years experience</span
+                        >
+                      </li>
+                    </ul>
                   </div>
                 </div>
-                <div class="request-goride-card-equipment">
-                  <div class="request-goride-card-equipment-title">
-                    <span class="request-goride-card-equipment-text"
-                      >For exchange</span
-                    >
-                  </div>
-                  <span class="request-goride-card-equipment-list"
-                    >Core XR 12 2022, Core Fusion 136 2021
-                  </span>
+                <div class="request-goride-date-location">
+                  <span class="request-goride-date">07.09.2023 10.00</span>
+                  <span class="request-goride-location">Wissant</span>
                 </div>
               </div>
-            </li>
-          </ul>
-        </div>
-        <div class="request-proposal-page">
-          <ul class="request-proposal-page-list list"></ul>
-        </div>
-        <div class="request-pending-page">
-          <ul class="request-pending-page-list list"></ul>
-        </div>
+              <div class="request-goride-card-equipment">
+                <div class="request-goride-card-equipment-title">
+                  <span class="request-goride-card-equipment-text"
+                    >For exchange</span
+                  >
+                </div>
+                <span class="request-goride-card-equipment-list"
+                  >Core XR 12 2022, Core Fusion 136 2021
+                </span>
+              </div>
+            </div>
+          </li>
+          <li class="request-goride-item">
+            <div class="request-goride-card">
+              <div class="request-goride-about">
+                <div class="request-goride-profile">
+                  <img
+                    class="request-goride-profile-photo"
+                    src="./img/temp/profile.jpg"
+                    alt="profile"
+                    width="40"
+                    height="40"
+                  />
+                  <div class="request-goride-profile-info">
+                    <ul class="list">
+                      <li>
+                        <span class="request-goride-profile-name"
+                          >Bogdan Protasenko</span
+                        >
+                      </li>
+                      <li>
+                        <span class="request-goride-profile-friends"
+                          >3 mutual friends</span
+                        >
+                      </li>
+                      <li>
+                        <span class="request-goride-profile-experience">
+                          8 years experience</span
+                        >
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="request-goride-date-location">
+                  <span class="request-goride-date">07.09.2023 10.00</span>
+                  <span class="request-goride-location">Wissant</span>
+                </div>
+              </div>
+              <div class="request-goride-card-equipment">
+                <div class="request-goride-card-equipment-title">
+                  <span class="request-goride-card-equipment-text"
+                    >For exchange</span
+                  >
+                </div>
+                <span class="request-goride-card-equipment-list"
+                  >Core XR 12 2022, Core Fusion 136 2021
+                </span>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </section>
+      <section class="request-proposal request-section-common is-hidden">
+        <ul class="request-proposal-list list">
+          <li class="request-goride-item">
+            <div class="request-goride-card">
+              <div class="request-goride-about">
+                <div class="request-goride-profile">
+                  <img
+                    class="request-goride-profile-photo"
+                    src="./img/temp/profile.jpg"
+                    alt="profile"
+                    width="40"
+                    height="40"
+                  />
+                  <div class="request-goride-profile-info">
+                    <ul class="list">
+                      <li>
+                        <span class="request-goride-profile-name"
+                          >Micky Store</span
+                        >
+                      </li>
+                      <li>
+                        <span class="request-goride-profile-friends"
+                          >3 mutual friends</span
+                        >
+                      </li>
+                      <li>
+                        <span class="request-goride-profile-experience">
+                          8 years experience</span
+                        >
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="request-goride-date-location">
+                  <span class="request-goride-date">07.09.2023 10.00</span>
+                  <span class="request-goride-location">Wissant</span>
+                </div>
+              </div>
+              <div class="request-goride-card-equipment">
+                <div class="request-goride-card-equipment-title">
+                  <span class="request-goride-card-equipment-text"
+                    >For exchange</span
+                  >
+                </div>
+                <span class="request-goride-card-equipment-list"
+                  >Core XR 12 2022, Core Fusion 136 2021
+                </span>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </section>
+      <section class="request-pending request-section-common is-hidden">
+        <ul class="request-pending-list list"></ul>
       </section>
     </main>
     <footer class="footer-menu">
@@ -298,7 +404,7 @@
       </ul>
     </footer>
     <!------------ request modal ------- -->
-    <section class="request-modal is-hidden">
+    <div class="request-modal is-hidden">
       <div class="request-modal-title">
         <p class="request-modal-title-text">NEW REQUEST</p>
       </div>
@@ -340,20 +446,16 @@
 
         <label class="request-label">
           <span class="request-label-title"> Spot </span>
-          <select class="request-input" name="spot" id="spot-select">
-            <option value="wissant">Wissant</option>
-            <option value="tarifa">Tarife</option>
-          </select>
+          <select class="request-input" name="spot" id="spot-select"></select>
         </label>
 
         <label class="request-label">
           <span class="request-label-title"> Equeipment </span>
-          <select class="request-input" name="equipment" id="equipment-select">
-            <option value="Naish">Naish</option>
-            <option value="Core">Core</option>
-            <option value="Cabrinha" selected>Cabrinha</option>
-            <option value="Spook">Spook</option>
-          </select>
+          <select
+            class="request-input"
+            name="equipment"
+            id="equipment-select"
+          ></select>
         </label>
 
         <div class="request-checkbox">
@@ -385,7 +487,7 @@
           </button>
         </div>
       </form>
-    </section>
+    </div>
     <script type="module" src="index.js"></script>
   </body>
 </html>
