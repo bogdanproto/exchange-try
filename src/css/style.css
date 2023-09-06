@@ -126,19 +126,6 @@ body {
 
 /*--------------------- Request section-----------------------------  */
 
-/* .request-section {
-  position: relative;
-  top: 100px;
-  margin-top: 58px;
-  margin-bottom: 32px;
-  padding-top: 5px;
-  padding-bottom: 5px;
-  padding-left: 18px;
-  padding-right: 18px;
-
-  background-color: var(--color-bcg);
-} */
-
 .request-menu-container {
   position: fixed;
   z-index: 101;
@@ -153,13 +140,11 @@ body {
   backdrop-filter: blur(50px);
 }
 
-.request-menu {
-  background-color: var(--color-bcg-element);
-  border-radius: var(--radius-main-menu);
-}
-
 .request-menu-list {
   display: flex;
+
+  background-color: var(--color-bcg-element);
+  border-radius: var(--radius-main-menu);
 }
 
 .request-menu-item {

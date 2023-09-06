@@ -9,22 +9,22 @@ class Interface {
         showSearch: false,
       },
     })),
-      (this.inputSpot = new SlimSelect({
+      (this.inputModalSpot = new SlimSelect({
         select: '#spot-select',
         settings: {
           showSearch: false,
         },
       })),
-      (this.inputEqpt = new SlimSelect({
+      (this.inputModalEqpt = new SlimSelect({
         select: '#equipment-select',
         settings: {
           showSearch: false,
         },
       })),
-      (this.inputDate = flatpickr('#date-picker', {
+      (this.inputModalDate = flatpickr('#date-picker', {
         disableMobile: 'true',
       })),
-      (this.inputTime = flatpickr('#time-picker', {
+      (this.inputModalTime = flatpickr('#time-picker', {
         disableMobile: 'true',
         mode: 'range',
         enableTime: true,
@@ -42,12 +42,12 @@ class Interface {
     });
   }
 
-  // ------ markUp function service --------
+  // ------ markUp functions service --------
   addSportSelector(arr) {
-    const markUp = arr.map(({ sport }) => {
+    const markUp = arr.map(({ sport, id }) => {
       return {
         text: sport.toUpperCase(),
-        value: sport,
+        value: id,
       };
     });
     this.sportCategory.setData(markUp);
@@ -69,7 +69,7 @@ class Interface {
         value: id,
       };
     });
-    this.inputSpot.setData(markUp);
+    this.inputModalSpot.setData(markUp);
   }
 
   addEqptSelectorByUser(arr) {
@@ -79,19 +79,90 @@ class Interface {
         value: id,
       };
     });
-    this.inputEqpt.setData(markUp);
+    this.inputModalEqpt.setData(markUp);
   }
 
-  // micro service interface
+  addRequestsProposal(obj) {
+    const markUp = obj.requests
+      .map(({ owner }) => {
+        const nameOwner = obj.owners.find(item => Number(item.id) === Number(owner));
+
+        return `<li class="request-goride-item">
+            <div class="request-goride-card">
+              <div class="request-goride-about">
+                <div class="request-goride-profile">
+                  <img class="request-goride-profile-photo"
+                    src="./img/temp/profile.jpg"
+                    alt="profile"
+                    width="40"
+                    height="40"/>
+                  <div class="request-goride-profile-info">
+                    <ul class="list">
+                      <li>
+                        <span class="request-goride-profile-name">${nameOwner.name} ${nameOwner.surname}</span
+                        >
+                      </li>
+                      <li>
+                        <span class="request-goride-profile-friends"
+                          >3 mutual friends</span
+                        >
+                      </li>
+                      <li>
+                        <span class="request-goride-profile-experience">
+                          8 years experience</span>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="request-goride-date-location">
+                  <span class="request-goride-date">07.09.2023 10.00</span>
+                  <span class="request-goride-location">Wissant</span>
+                </div>
+              </div>
+              <div class="request-goride-card-equipment">
+                <div class="request-goride-card-equipment-title">
+                  <span class="request-goride-card-equipment-text"
+                    >For exchange</span
+                  >
+                </div>
+                <span class="request-goride-card-equipment-list"
+                  >Core XR 12 2022, Core Fusion 136 2021
+                </span>
+              </div>
+            </div>
+          </li>`;
+      })
+      .join('');
+    this.proposalList.insertAdjacentHTML('beforeend', markUp);
+  }
+  // micro services interface
+
+  toClearModalForm(evt) {
+    evt.target.reset();
+    this.inputModalEqpt.setSelected([]);
+    this.inputModalSpot.setSelected('1');
+  }
+
+  isFooterButton(evt) {
+    return evt.target.closest('.footer-button');
+  }
+
+  isRequestButton(evt) {
+    return evt.target.closest('.request-menu-button');
+  }
+
+  isModalRequestActive() {
+    return this.modalRequest.classList.contains('is-hidden');
+  }
 
   toDisableTimeSelect() {
-    this.inputTime.element.disabled = true;
-    this.inputTime.element.value = 'All day';
+    this.inputModalTime.element.disabled = true;
+    this.inputModalTime.element.value = 'allday';
   }
 
   toEnableTimeSelect() {
-    interfaceApp.inputTime.element.disabled = false;
-    interfaceApp.inputTime.element.value = '12:00';
+    interfaceApp.inputModalTime.element.disabled = false;
+    interfaceApp.inputModalTime.element.value = '12:00';
   }
 
   toShowModalRequest() {
@@ -107,8 +178,10 @@ class Interface {
     this.toSetDefaultActiveButtonFooter();
   }
 
-  toShowActivebtnFooter(evt) {
-    const isButton = evt.target.closest('.footer-button');
+  // activate button footer menu
+  toActivateBtnFooter(evt) {
+    const isButton = this.isFooterButton(evt);
+
     if (!isButton) {
       return;
     }
@@ -134,17 +207,7 @@ class Interface {
     this.btnHome.children[1].classList.add('active-text');
   }
 
-  toSetDefaultActiveButtonFooter() {
-    const listButtons = this.footerMenu.querySelectorAll('.footer-button');
-    listButtons.forEach(button => {
-      button.children[0].classList.remove('active-icon');
-      button.children[1].classList.remove('active-text');
-    });
-
-    this.btnHome.children[0].classList.add('active-icon');
-    this.btnHome.children[1].classList.add('active-text');
-  }
-
+  // to activate section of requests by button
   toShowRequestSection(evt) {
     const isButton = evt.target.closest('.request-menu-button');
 
@@ -152,17 +215,12 @@ class Interface {
       return;
     }
 
-    const listButtons = this.requestMenu.querySelectorAll(
-      '.request-menu-button'
-    );
-    const listSections = document.querySelectorAll(
-      'main > .request-section-common'
-    );
+    const listButtons = this.requestMenu.querySelectorAll('.request-menu-button');
+    const listSections = document.querySelectorAll('main > .request-section-common');
 
     listButtons.forEach(button => {
       button.classList.remove('active-btn');
     });
-
     listSections.forEach(section => {
       section.classList.add('is-hidden');
     });
@@ -191,10 +249,15 @@ const ref = {
   btnRequest: '.js-btn-request',
   btnHome: '.js-btn-home',
 
-  requestMenu: '.request-menu',
+  requestMenu: '.request-menu-list',
+  btnGoride: '.js-btn-goride',
+  btnProposal: '.js-btn-proposal',
+  btnPending: '.js-btn-pending',
+
   sectionGoride: '.request-goride',
   sectionProposal: '.request-proposal',
   sectionPending: '.request-pending',
+  proposalList: '.js-proposal-list',
 
   modalRequest: '.request-modal',
   formRequest: '.request-form',
