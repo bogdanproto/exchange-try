@@ -83,50 +83,56 @@ class Interface {
   }
 
   addRequestsProposal(obj) {
-    const markUp = obj.requests
-      .map(({ owner }) => {
-        const nameOwner = obj.owners.find(item => Number(item.id) === Number(owner));
+    console.log(obj);
+    const { requests, unicOwners, unicEqueipments, unicSpots } = obj;
+    const markUp = requests
+      .map(({ owner, date, time, owner_equipment, spot }) => {
+        const user = unicOwners.find(item => Number(item.id) === Number(owner));
+        const userEqpts = unicEqueipments
+          .filter(item => owner_equipment.includes(Number(item.id)))
+          .map(id => id.item)
+          .join(', ');
+        const userSpots = unicSpots
+          .filter(item => spot.includes(Number(item.id)))
+          .map(id => id.spot)
+          .join(', ');
 
-        return `<li class="request-goride-item">
-            <div class="request-goride-card">
-              <div class="request-goride-about">
-                <div class="request-goride-profile">
-                  <img class="request-goride-profile-photo"
-                    src="./img/temp/profile.jpg"
+        return ` <li class="request-proposal-item">
+            <div class="request-proposal-card">
+              <div class="request-proposal-about">
+                <div class="request-proposal-profile">
+                  <img
+                    class="request-proposal-profile-photo"
+                    src="${user.photo}"
                     alt="profile"
                     width="40"
-                    height="40"/>
-                  <div class="request-goride-profile-info">
+                    height="40"
+                  />
+                  <div class="request-proposal-profile-info">
                     <ul class="list">
                       <li>
-                        <span class="request-goride-profile-name">${nameOwner.name} ${nameOwner.surname}</span
-                        >
+                        <span class="request-proposal-profile-name">${user.name} ${user.surname}
+                        </span>
                       </li>
                       <li>
-                        <span class="request-goride-profile-friends"
-                          >3 mutual friends</span
-                        >
+                        <span class="request-proposal-profile-friends">3 mutual friends</span>
                       </li>
                       <li>
-                        <span class="request-goride-profile-experience">
-                          8 years experience</span>
+                        <span class="request-proposal-profile-experience"> 8 years experience</span>
                       </li>
                     </ul>
                   </div>
                 </div>
-                <div class="request-goride-date-location">
-                  <span class="request-goride-date">07.09.2023 10.00</span>
-                  <span class="request-goride-location">Wissant</span>
+                <div class="request-proposal-date-location">
+                  <span class="request-proposal-date">${date} ${time.toUpperCase()}</span>
+                  <span class="request-proposal-location">${userSpots}</span>
                 </div>
               </div>
-              <div class="request-goride-card-equipment">
-                <div class="request-goride-card-equipment-title">
-                  <span class="request-goride-card-equipment-text"
-                    >For exchange</span
-                  >
+              <div class="request-proposal-card-equipment">
+                <div class="request-proposal-card-equipment-title">
+                  <span class="request-proposal-card-equipment-text">For exchange</span>
                 </div>
-                <span class="request-goride-card-equipment-list"
-                  >Core XR 12 2022, Core Fusion 136 2021
+                <span class="request-proposal-card-equipment-list">${userEqpts}
                 </span>
               </div>
             </div>
@@ -152,7 +158,7 @@ class Interface {
   }
 
   isModalRequestActive() {
-    return this.modalRequest.classList.contains('is-hidden');
+    return !this.modalRequest.classList.contains('is-hidden');
   }
 
   toDisableTimeSelect() {
@@ -180,28 +186,24 @@ class Interface {
 
   // activate button footer menu
   toActivateBtnFooter(evt) {
-    const isButton = this.isFooterButton(evt);
+    const clickButton = this.isFooterButton(evt);
 
-    if (!isButton) {
-      return;
-    }
+    const currentButtonIcon = this.footerMenu.querySelector('.active-icon');
+    const currentButtonText = this.footerMenu.querySelector('.active-text');
 
-    const listButtons = this.footerMenu.querySelectorAll('.footer-button');
-    listButtons.forEach(button => {
-      button.children[0].classList.remove('active-icon');
-      button.children[1].classList.remove('active-text');
-    });
+    currentButtonIcon.classList.remove('active-icon');
+    currentButtonText.classList.remove('active-text');
 
-    isButton.children[0].classList.add('active-icon');
-    isButton.children[1].classList.add('active-text');
+    clickButton.children[0].classList.add('active-icon');
+    clickButton.children[1].classList.add('active-text');
   }
 
   toSetDefaultActiveButtonFooter() {
-    const listButtons = this.footerMenu.querySelectorAll('.footer-button');
-    listButtons.forEach(button => {
-      button.children[0].classList.remove('active-icon');
-      button.children[1].classList.remove('active-text');
-    });
+    const currentButtonIcon = this.footerMenu.querySelector('.active-icon');
+    const currentButtonText = this.footerMenu.querySelector('.active-text');
+
+    currentButtonIcon.classList.remove('active-icon');
+    currentButtonText.classList.remove('active-text');
 
     this.btnHome.children[0].classList.add('active-icon');
     this.btnHome.children[1].classList.add('active-text');

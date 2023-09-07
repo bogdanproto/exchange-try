@@ -99,6 +99,7 @@ class API {
       .map(({ owner }) => owner)
       .filter((item, idx, arr) => arr.indexOf(item) === idx);
 
+    // create array promices for get unic user
     const arrPromicesUsers = arrUnicUser.map(async item => {
       const response = await fetch(this.BASE_URL + this.users + item);
       if (!response.ok) {
@@ -107,8 +108,7 @@ class API {
       return response.json();
     });
 
-    const arrOwners = await Promise.all(arrPromicesUsers);
-
+    // create array promices for get unic equipment
     const arrUnicEqpt = arrayRequests
       .flatMap(({ owner_equipment }) => owner_equipment)
       .filter((item, idx, arr) => arr.indexOf(item) === idx);
@@ -121,12 +121,28 @@ class API {
       return response.json();
     });
 
+    // create array promices for get unic spots
+    const arrUnicSpots = arrayRequests
+      .flatMap(({ spot }) => spot)
+      .filter((item, idx, arr) => arr.indexOf(item) === idx);
+
+    const arrPromicesSpots = arrUnicSpots.map(async item => {
+      const response = await fetch(this.BASE_URL + this.spots + item);
+      if (!response.ok) {
+        throw new Error(response.statusText);
+      }
+      return response.json();
+    });
+
+    const arrOwners = await Promise.all(arrPromicesUsers);
     const arrEqpt = await Promise.all(arrPromicesEqpt);
+    const arrSpots = await Promise.all(arrPromicesSpots);
 
     return {
       requests: arrayRequests,
-      owners: arrOwners,
-      equeipments: arrEqpt,
+      unicOwners: arrOwners,
+      unicEqueipments: arrEqpt,
+      unicSpots: arrSpots,
     };
   }
 

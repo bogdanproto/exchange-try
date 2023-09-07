@@ -5,6 +5,7 @@ const USER = 1; // while I won't have user loginIn
 
 const isDataLoaded = {
   ModalRequest: null,
+  requestProposal: null,
 };
 
 document.addEventListener('DOMContentLoaded', loadMainData);
@@ -47,7 +48,7 @@ async function handlerFooterMenu(evt) {
   }
 
   // catch click on button Request
-  if (isButton === interfaceApp.btnRequest && interfaceApp.isModalRequestActive()) {
+  if (isButton === interfaceApp.btnRequest && !interfaceApp.isModalRequestActive()) {
     if (!isDataLoaded.ModalRequest) {
       try {
         const listSpots = await serverAPI.fetchSpots();
@@ -132,11 +133,14 @@ async function handlerRequestMenu(evt) {
   }
 
   if (isButton === interfaceApp.btnProposal) {
-    try {
-      const objOfRequests = await serverAPI.getRequestsProposal();
-      interfaceApp.addRequestsProposal(objOfRequests);
-    } catch (err) {
-      console.log(err);
+    if (!isDataLoaded.requestProposal) {
+      try {
+        const objOfRequests = await serverAPI.getRequestsProposal();
+        interfaceApp.addRequestsProposal(objOfRequests);
+        isDataLoaded.requestProposal = true;
+      } catch (err) {
+        console.log(err);
+      }
     }
   }
   interfaceApp.toShowRequestSection(evt);

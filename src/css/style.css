@@ -180,10 +180,6 @@ body {
 }
 /* Go ride page */
 
-.request-goride {
-  background-color: var(--color-main-menu);
-}
-
 .request-goride-item {
   margin-bottom: 16px;
 }
@@ -270,6 +266,94 @@ body {
 }
 
 .request-goride-card-equipment-list {
+  font-size: 12px;
+  color: var(--color-focus-text);
+}
+
+/* proposal card  */
+
+.request-proposal-item {
+  margin-bottom: 16px;
+}
+
+.request-proposal-card {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 12px;
+  padding-right: 12px;
+
+  width: 100%;
+
+  background-color: var(--color-bcg-element);
+  border-radius: var(--radius-card);
+}
+
+.request-proposal-about {
+  display: flex;
+  justify-content: space-between;
+
+  margin-bottom: 8px;
+}
+
+.request-proposal-profile {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.request-proposal-profile-photo {
+  border-radius: 50%;
+}
+
+.request-proposal-profile-info {
+  width: 128px;
+  font-size: 8px;
+}
+.request-proposal-profile-name {
+  font-size: 14px;
+}
+
+.request-proposal-date-location {
+  min-width: 120px;
+  padding-top: 2px;
+}
+.request-proposal-date-location > span {
+  display: block;
+  font-size: 12px;
+}
+
+.request-proposal-card-equipment {
+  min-height: 42px;
+
+  margin-bottom: -8px;
+  margin-left: -12px;
+  margin-right: -12px;
+  padding-left: 8px;
+
+  background-color: var(--color-card-eqp);
+  border-radius: var(--radius-card-bottom);
+  box-shadow: var(--shadow-card);
+}
+
+.request-proposal-card-equipment-title {
+  padding-bottom: 2px;
+  padding-left: 4px;
+  padding-right: 4px;
+  margin-left: -8px;
+
+  width: max-content;
+
+  border-radius: 0 0 8px 0;
+  background-color: var(--color-bcg-element);
+}
+
+.request-proposal-card-equipment-text {
+  display: block;
+  font-size: 10px;
+  color: var(--color-focus-text);
+}
+
+.request-proposal-card-equipment-list {
   font-size: 12px;
   color: var(--color-focus-text);
 }
