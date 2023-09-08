@@ -2,7 +2,6 @@
   "name": "exchange-try",
   "version": "1.0.0",
   "description": "my pet project",
-  "main": "index.js",
   "homepage": "https://bogdanproto.github.io/exchange-try",
   "scripts": {
     "start": "parcel src/*.html --no-cache",
