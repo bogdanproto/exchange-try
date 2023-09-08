@@ -1,16 +1,21 @@
 import { interfaceApp } from './js/interface';
 import { serverAPI } from './js/api';
+import { userAuth } from './js/firebase';
 
-const USER = 1; // while I won't have user loginIn
+userAuth.initializeAuth();
 
 const isDataLoaded = {
+  userOnline: null,
   ModalRequest: null,
   requestProposal: null,
 };
 
-document.addEventListener('DOMContentLoaded', loadMainData);
-interfaceApp.footerMenu.addEventListener('click', handlerFooterMenu);
-interfaceApp.requestMenu.addEventListener('click', handlerRequestMenu);
+interfaceApp.logInForm.addEventListener('submit', loadMainData);
+
+function OnKitListnerApp() {
+  interfaceApp.footerMenu.addEventListener('click', handlerFooterMenu);
+  interfaceApp.requestMenu.addEventListener('click', handlerRequestMenu);
+}
 
 // switch on kit listener for modal request form
 function OnKitListnerModalRequest() {
@@ -27,15 +32,30 @@ function offKitListnerModalRequest() {
 }
 
 // load main data to home page
-async function loadMainData() {
-  try {
-    const user = await serverAPI.fetchUser(USER);
-    const sportCategory = await serverAPI.fetchUsersSportCategory(user.sports);
+async function loadMainData(evt) {
+  evt.preventDefault();
 
+  const { email, password } = evt.currentTarget.elements;
+
+  try {
+    const uidUser = await userAuth.logIn(email.value, password.value);
+    const userArr = await serverAPI.fetchUserUid(uidUser);
+    isDataLoaded.userOnline = userArr[0];
+    const user = isDataLoaded.userOnline;
+
+    const sportCategory = await serverAPI.fetchUsersSportCategory(user.sports);
+    const objOfRequests = await serverAPI.getRequestsProposal();
+
+    interfaceApp.addRequestsProposal(objOfRequests);
     interfaceApp.changeProfileButton(user);
     interfaceApp.addSportSelector(sportCategory);
+
+    interfaceApp.toHiddenLogIn();
+    OnKitListnerApp();
+    isDataLoaded.requestProposal = true;
+    interfaceApp.logInForm.removeEventListener('submit', loadMainData);
   } catch (err) {
-    console.log(err);
+    console.log('Wrong login or password', err);
   }
 }
 
@@ -51,8 +71,9 @@ async function handlerFooterMenu(evt) {
   if (isButton === interfaceApp.btnRequest && !interfaceApp.isModalRequestActive()) {
     if (!isDataLoaded.ModalRequest) {
       try {
+        const user = isDataLoaded.userOnline.id;
         const listSpots = await serverAPI.fetchSpots();
-        const listUserEqpt = await serverAPI.fetchUserEqpt(USER);
+        const listUserEqpt = await serverAPI.fetchUserEqpt(user);
 
         interfaceApp.addSpotsSelector(listSpots);
         interfaceApp.addEqptSelectorByUser(listUserEqpt);
@@ -90,7 +111,7 @@ function toSubmitRequest(evt) {
   }
 
   const dataRequest = {
-    owner: USER,
+    owner: isDataLoaded.userOnline.id,
     date: date.value,
     time: time.value,
     spot: spot,
@@ -132,16 +153,5 @@ async function handlerRequestMenu(evt) {
     return;
   }
 
-  if (isButton === interfaceApp.btnProposal) {
-    if (!isDataLoaded.requestProposal) {
-      try {
-        const objOfRequests = await serverAPI.getRequestsProposal();
-        interfaceApp.addRequestsProposal(objOfRequests);
-        isDataLoaded.requestProposal = true;
-      } catch (err) {
-        console.log(err);
-      }
-    }
-  }
   interfaceApp.toShowRequestSection(evt);
 }

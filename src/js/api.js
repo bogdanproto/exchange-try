@@ -28,8 +28,11 @@ class API {
 
   //---------------GET block----------------
   //get main User data
-  async fetchUser(id) {
-    const response = await fetch(this.BASE_URL + this.users + id);
+  async fetchUserUid(uid) {
+    const url = new URL(this.BASE_URL + this.users);
+    url.searchParams.append('uid', uid);
+
+    const response = await fetch(url, this.GET);
 
     if (!response.ok) {
       throw new Error(response.statusText);
@@ -38,6 +41,16 @@ class API {
     return await response.json();
   }
 
+  async fetchUser(id) {
+    const url = new URL(this.BASE_URL + this.users + id);
+    const response = await fetch(url, this.GET);
+
+    if (!response.ok) {
+      throw new Error(response.statusText);
+    }
+
+    return await response.json();
+  }
   //get main User Sport category
   async fetchUsersSportCategory(sportsId) {
     const arrPromises = sportsId.map(async sportId => {
@@ -54,8 +67,9 @@ class API {
   //get main User Equeipment
   async fetchUserEqpt(id) {
     try {
-      const user = await this.fetchUser(id);
+      const user = await this.fetchUser(Number(id));
       const { equeipment } = user;
+      console.log(equeipment);
 
       const arrPromises = equeipment.map(async equeipmentId => {
         const response = await fetch(this.BASE_URL + this.equeipment + equeipmentId);

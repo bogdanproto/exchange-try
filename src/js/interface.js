@@ -184,6 +184,10 @@ class Interface {
     this.toSetDefaultActiveButtonFooter();
   }
 
+  toHiddenLogIn() {
+    this.logInBackdrop.classList.add('is-hidden');
+  }
+
   // activate button footer menu
   toActivateBtnFooter(evt) {
     const clickButton = this.isFooterButton(evt);
@@ -243,6 +247,9 @@ const interfaceApp = new Interface();
 
 const ref = {
   body: 'body',
+
+  logInBackdrop: '.login-section',
+  logInForm: '.login-form',
 
   selectSport: '#category',
 
