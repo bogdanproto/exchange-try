@@ -7,9 +7,12 @@
 @import url('./fonts.css');
 @import url(./main.css);
 @import url(./request.css);
+@import url(./login.css);
 
 :root {
   /* Colors */
+  --color-logo: rgb(41, 45, 50, 95%);
+  --color-text-logo: rgba(5, 129, 146, 90%);
   --color-fixed-menu: rgb(36, 36, 36, 95%);
   --color-top-menu: rgb(42, 42, 42, 90%);
   --color-bcg: rgb(42, 42, 42);
@@ -22,6 +25,8 @@
 
   /* color form */
   --color-input: rgb(42, 42, 42);
+
+  --color-input-border: rgba(184, 184, 184, 0.434);
 
   /* event colors  */
 
