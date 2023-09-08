@@ -20,19 +20,26 @@ class Interface {
         settings: {
           showSearch: false,
         },
-      })),
-      (this.inputModalDate = flatpickr('#date-picker', {
-        disableMobile: 'true',
-      })),
-      (this.inputModalTime = flatpickr('#time-picker', {
-        disableMobile: 'true',
-        mode: 'range',
-        enableTime: true,
-        noCalendar: true,
-        dateFormat: 'H:i',
-        time_24hr: true,
-        allowInput: true,
       }));
+    mobiscroll.datepicker('#date-picker', { controls: ['date'], touchUi: true });
+    mobiscroll.datepicker('#time-picker', {
+      controls: ['time'],
+      timeFormat: 'HH:mm',
+      touchUi: true,
+    });
+
+    // (this.inputModalDate = flatpickr('#date-picker', {
+    //   disableMobile: 'true',
+    // })),
+    // (this.inputModalTime = flatpickr('#time-picker', {
+    //   disableMobile: 'true',
+    //   mode: 'range',
+    //   enableTime: true,
+    //   noCalendar: true,
+    //   dateFormat: 'H:i',
+    //   time_24hr: true,
+    //   allowInput: true,
+    // }));
   }
 
   setElements(obj) {
